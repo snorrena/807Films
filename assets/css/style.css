@@ -26,7 +26,8 @@ header .logo {
 }
 
 .toggle {
-  position: relative;
+  position: absolute;
+  right: 25px;
   width: 60px;
   height: 60px;
   background: url(https://i.ibb.co/HrfVRcx/menu.png);
@@ -111,7 +112,11 @@ header .logo {
   max-width: 700px;
 }
 
-.text a {
+.name {
+  font-size: larger;
+}
+
+/* .text a {
   display: inline-block;
   font-size: 1em;
   background: #fff;
@@ -127,6 +132,10 @@ header .logo {
 
 .text a:hover {
   letter-spacing: 6px;
+} */
+
+.text a {
+  color: white;
 }
 
 .social {
