@@ -44,9 +44,9 @@
           <!--   <option value="https://youtu.be/sQiu0ZOimJw?si=rTtVJxTc7ArOic4L">807 - Trailer</option> -->
           <!-- </select> -->
 
-          <label for="filmDropdown">🎬 Films:</label>
+          <!-- <label for="filmDropdown">🎬 Films:</label> -->
           <select id="filmDropdown" onchange="openCenteredPopup(this.value)">
-            <option value="">Select</option>
+            <option value="">Select a Film</option>
             <option
               value='{"url":"https://youtu.be/kY7aOMS-QBc?si=WCthvWbDP7-LwZjl","title":"Made With Pride","width":"600", "height":"400"}'>
               Made With Pride</option>
@@ -123,6 +123,9 @@
       if (popup && popup.focus) {
         popup.focus();
       }
+      setTimeout(() => {
+      document.getElementById("filmDropdown").selectedIndex = 0;
+    }, 3000); // 3000 milliseconds = 3 seconds
     }
 
   </script>
