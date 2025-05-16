@@ -173,7 +173,7 @@ header .logo {
   letter-spacing: 6px;
 } */
 
-.text a {
+.text a, label {
   color: white;
 }
 
