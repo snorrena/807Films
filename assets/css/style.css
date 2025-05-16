@@ -1,5 +1,31 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap'); */
 
+body {
+  font-family: Arial, sans-serif;
+  /* padding: 50px; */
+}
+
+label {
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+select {
+  font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #f8f8f8;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+select:hover {
+  border-color: #888;
+  background-color: #eee;
+}
+
 * {
   margin: 0;
   padding: 0;

@@ -15,20 +15,51 @@
 
   <section class="showcase">
     <header>
-      <div class="logo_contact">
-        <div>
-          <h1 class="logo">807Films</h1>
+
+      <div style="display:flex; flex-direction:row; justify-content:space-between; width:100%">
+
+        <div class="logo_contact">
+          <div>
+            <h1 class="logo">807Films</h1>
+          </div>
+          <div>
+            <address class="contact">
+              <ul>
+                <li class="name">Tammy Jones</li>
+                <li><a href="mailto:tamara@steaditam.com">807Films@gmail.com</a></li>
+                <li><a href="tel:+16047616347">(604) 761-6347</a></li>
+              </ul>
+            </address>
+          </div>
+          <!-- <div class="toggle"></div> -->
         </div>
+
         <div>
-          <address class="contact">
-            <ul>
-              <li class="name">Tammy Jones</li>
-              <li><a href="mailto:tamara@steaditam.com">807Films@gmail.com</a></li>
-              <li><a href="tel:+16047616347">(604) 761-6347</a></li>
-            </ul>
-          </address>
+
+          <!-- <label for="filmDropdown">🎬 Films:</label> -->
+          <!-- <select id="filmDropdown" onchange="openLink(this.value)"> -->
+          <!--   <option value="">Select</option> -->
+          <!--   <option value="https://youtu.be/kY7aOMS-QBc?si=WCthvWbDP7-LwZjl">Made With Pride</option> -->
+          <!--   <option value="https://youtu.be/MNwmJZFQ8m4?si=RTZguqZQ-wFzPCUz">Expired</option> -->
+          <!--   <option value="https://youtu.be/sQiu0ZOimJw?si=rTtVJxTc7ArOic4L">807 - Trailer</option> -->
+          <!-- </select> -->
+
+          <label for="filmDropdown">🎬 Films:</label>
+          <select id="filmDropdown" onchange="openCenteredPopup(this.value)">
+            <option value="">Select</option>
+            <option
+              value='{"url":"https://youtu.be/kY7aOMS-QBc?si=WCthvWbDP7-LwZjl","title":"Made With Pride","width":"600", "height":"400"}'>
+              Made With Pride</option>
+            <option
+              value='{"url":"https://youtu.be/MNwmJZFQ8m4?si=RTZguqZQ-wFzPCUz","title":"Expired", "width":"600","height":"400"}'>
+              Expired</option>
+            <option
+              value='{"url":"https://youtu.be/sQiu0ZOimJw?si=rTtVJxTc7ArOic4L","title":"807 - Trailer", "width":"600","height":"400"}'>
+              807 - Trailer</option>
+          </select>
+
         </div>
-        <!-- <div class="toggle"></div> -->
+
       </div>
     </header>
     <video src="assets/807 Spash.mov" muted loop autoplay></video>
@@ -60,6 +91,41 @@
     })
   </script> -->
 
+  <script>
+    function openLink(url) {
+      if (url) {
+        window.open(url, '_blank');
+      }
+    }
+
+    function openCenteredPopup(jsonData) {
+      const data = JSON.parse(jsonData);
+      const url = data.url;
+      const title = data.title;
+      const w = parseInt(data.width);
+      const h = parseInt(data.height);
+      console.log(`url: ${url}, title: ${title}, w: ${w}, h: ${h}`)
+      // Calculate position of popup to center it
+      const dualScreenLeft = window.screenLeft !== undefined ? window.screenLeft : window.screenX;
+      const dualScreenTop = window.screenTop !== undefined ? window.screenTop : window.screenY;
+
+      const width = window.innerWidth || document.documentElement.clientWidth || screen.width;
+      const height = window.innerHeight || document.documentElement.clientHeight || screen.height;
+
+      const left = ((width / 2) - (w / 2)) + dualScreenLeft;
+      const top = ((height / 2) - (h / 2)) + dualScreenTop; const popup = window.open(
+        url,
+        title,
+        `scrollbars=yes, width=${w}, height=${h}, top=${top}, left=${left}`
+      );
+
+      // Focus on the popup
+      if (popup && popup.focus) {
+        popup.focus();
+      }
+    }
+
+  </script>
 </body>
 
 </html>
